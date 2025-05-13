@@ -180,14 +180,36 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //testDATA 1: [5, 2, 4, 1, 15, 8, 3]
 //testDATA 2: [16, 6, 10, 5, 6, 1, 4]
 
-const eurToUsd = 1.1;
+// const eurToUsd = 1.1;
 
-const totalDepositsUSD = movements
-  .filter(mov => mov > 0)
-  // .map(mov => mov * eurToUsd)
-  .map((mov, i, arr) => {
-    return mov * eurToUsd;
-  })
-  .reduce((acc, mov) => acc + mov, 0);
+// const totalDepositsUSD = movements
+//   .filter(mov => mov > 0)
+//   // .map(mov => mov * eurToUsd)
+//   .map((mov, i, arr) => {
+//     return mov * eurToUsd;
+//   })
+//   .reduce((acc, mov) => acc + mov, 0);
 
-console.log(totalDepositsUSD);
+// console.log(totalDepositsUSD);
+
+// const calcAverageHumanAge = function (ages) {
+//   const dogAgeHumanYears = ages.map(age => (age <= 2 ? age * 2 : 16 + age * 4));
+
+//   const filteredDogs = dogAgeHumanYears.filter(age => age > 18);
+
+//   const averageAge = filteredDogs.reduce(
+//     (acc, dog, _, arr) => acc + dog / arr.length,
+//     0
+//   );
+
+//   console.log(averageAge);
+// };
+
+// calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+
+const calcAverageHumanAge = ages => {
+  const answer = ages
+    .map(age => (age <= 2 ? age * 2 : 16 + age * 4))
+    .filter(age => age > 18)
+    .reduce((acc, dog, _, arr) => acc + dog / arr.length, 0);
+};
