@@ -89,6 +89,31 @@ const calcDisplayBalance = function (movements) {
 
 calcDisplayBalance(account1.movements);
 
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+
+  labelSumIn.textContent = `${incomes} EUR`;
+
+  const out = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+
+  labelSumOut.textContent = `${Math.abs(out)} EUR`;
+
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter((int, i, arr) => {
+      return int >= 1;
+    })
+    .reduce((acc, int) => acc + int, 0);
+  labelSumInterest.textContent = `${interest}`;
+};
+
+calcDisplaySummary(account1.movements);
+
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
     acc.username = acc.owner
@@ -137,20 +162,32 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // console.log(max);
 
-const calcAverageHumanAge = function (ages) {
-  const dogAgeHumanYears = ages.map(age => (age <= 2 ? age * 2 : 16 + age * 4));
+// const calcAverageHumanAge = function (ages) {
+//   const dogAgeHumanYears = ages.map(age => (age <= 2 ? age * 2 : 16 + age * 4));
 
-  const filteredDogs = dogAgeHumanYears.filter(age => age > 18);
+//   const filteredDogs = dogAgeHumanYears.filter(age => age > 18);
 
-  const averageAge = filteredDogs.reduce(
-    (acc, dog, _, arr) => acc + dog / arr.length,
-    0
-  );
+//   const averageAge = filteredDogs.reduce(
+//     (acc, dog, _, arr) => acc + dog / arr.length,
+//     0
+//   );
 
-  console.log(averageAge);
-};
+//   console.log(averageAge);
+// };
 
-calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+// calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 
 //testDATA 1: [5, 2, 4, 1, 15, 8, 3]
 //testDATA 2: [16, 6, 10, 5, 6, 1, 4]
+
+const eurToUsd = 1.1;
+
+const totalDepositsUSD = movements
+  .filter(mov => mov > 0)
+  // .map(mov => mov * eurToUsd)
+  .map((mov, i, arr) => {
+    return mov * eurToUsd;
+  })
+  .reduce((acc, mov) => acc + mov, 0);
+
+console.log(totalDepositsUSD);
