@@ -302,22 +302,41 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // const firstWithdrawal = movements.find(mov => mov < 0);
 // console.log(firstWithdrawal);
 
-console.log(movements);
+// console.log(movements);
 
-const groupedMovements = Object.groupBy(movements, movement =>
-  movement > 0 ? 'deposits' : 'withdrawal'
-);
+// const groupedMovements = Object.groupBy(movements, movement =>
+//   movement > 0 ? 'deposits' : 'withdrawal'
+// );
 
-console.log(groupedMovements);
+// console.log(groupedMovements);
 
-const groupedByActivity = Object.groupBy(accounts, account => {
-  const movementCount = account.movements.length;
-  if (movementCount >= 8) return 'very active';
-  if (movementCount >= 4) return 'active';
-  if (movementCount >= 1) return 'mdoerate';
-  return 'inactive';
+// const groupedByActivity = Object.groupBy(accounts, account => {
+//   const movementCount = account.movements.length;
+//   if (movementCount >= 8) return 'very active';
+//   if (movementCount >= 4) return 'active';
+//   if (movementCount >= 1) return 'mdoerate';
+//   return 'inactive';
+// });
+// console.log(groupedByActivity);
+
+// const groupedAccounts = Object.groupBy(accounts, ({ type }) => type);
+// console.log(groupedAccounts);
+
+const x = new Array(7);
+x.fill(1, 3, 5);
+console.log(x);
+
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y);
+
+const z = Array.from({ length: 7 }, (cur, i) => i + 1);
+
+labelBalance.addEventListener('click', function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value')
+  );
+  console.log(movementsUI);
 });
-console.log(groupedByActivity);
 
-const groupedAccounts = Object.groupBy(accounts, ({ type }) => type);
-console.log(groupedAccounts);
+const m2 = [...document.querySelectorAll('.movements__value')];
+console.log(m2);
