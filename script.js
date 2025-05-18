@@ -258,31 +258,38 @@ btnSort.addEventListener('click', function (e) {
 // //Parsing
 // console.log(Number.parseInt('30px', 10));
 
-const randomInt = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1)) + min;
+// const randomInt = (min, max) =>
+//   Math.floor(Math.random() * (max - min + 1)) + min;
 
-console.log(randomInt(10, 20));
+// console.log(randomInt(10, 20));
 
-// Rounding integers
+// // Rounding integers
 
-const isEven = n => n % 2 === 0;
+// const isEven = n => n % 2 === 0;
 
-labelBalance.addEventListener('click', function () {
-  [...document.querySelectorAll('.movements__row')].forEach(function (row, i) {
-    if (i % 2 === 0) row.style.backgroundColor = 'orangered';
-    if (i % 3 === 0) row.style.backgroundColor = 'yellow';
-  });
-});
+// labelBalance.addEventListener('click', function () {
+//   [...document.querySelectorAll('.movements__row')].forEach(function (row, i) {
+//     if (i % 2 === 0) row.style.backgroundColor = 'orangered';
+//     if (i % 3 === 0) row.style.backgroundColor = 'yellow';
+//   });
+// });
 
-const diameter = 287_460_000_000;
-console.log(diameter);
+// const diameter = 287_460_000_000;
+// console.log(diameter);
 
-const priceCents = 345_99;
-console.log(priceCents);
+// const priceCents = 345_99;
+// console.log(priceCents);
 
-const transferFee = 15_00;
+// const transferFee = 15_00;
 
-const PI = 3.14_15;
+// const PI = 3.14_15;
 
-console.log(Number('230_000')); // daabrunebs NaN
-console.log(parseInt('230_000')); // daabrunebs 230
+// console.log(Number('230_000')); // daabrunebs NaN
+// console.log(parseInt('230_000')); // daabrunebs 230
+
+console.log(0n == true ? 'hey' : 'no');
+
+console.log(12313141849214142141024124012481n);
+console.log(BigInt(12313141849214142141024124012481));
+
+console.log(10000n + 10000n);
