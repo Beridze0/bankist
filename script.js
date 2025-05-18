@@ -287,9 +287,32 @@ btnSort.addEventListener('click', function (e) {
 // console.log(Number('230_000')); // daabrunebs NaN
 // console.log(parseInt('230_000')); // daabrunebs 230
 
-console.log(0n == true ? 'hey' : 'no');
+// console.log(0n == true ? 'hey' : 'no');
 
-console.log(12313141849214142141024124012481n);
-console.log(BigInt(12313141849214142141024124012481));
+// console.log(12313141849214142141024124012481n);
+// console.log(BigInt(12313141849214142141024124012481));
 
-console.log(10000n + 10000n);
+// console.log(10000n + 10000n);
+
+//Create a date
+
+// const now = new Date();
+// console.log(now);
+
+// console.log(new Date(account1.movementsDates[0]));
+// console.log(new Date(2037, 10, 19, 15, 23, 5));
+
+const future = new Date(2037, 10, 19, 15, 23, 5);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate()); //dge
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString());
+console.log(future.getTime());
+console.log(new Date(2142242585000));
+console.log(Date.now());
+
+future.setFullYear(2040);
