@@ -390,15 +390,26 @@ btnSort.addEventListener('click', function (e) {
 // const days1 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 24));
 // console.log(days1);
 
-const num = 3884764.23;
-const locale = navigator.language;
+// const num = 3884764.23;
+// const locale = navigator.language;
 
-const options = {
-  style: 'unit',
-  unit: 'mile-per-hour',
-};
+// const options = {
+//   style: 'unit',
+//   unit: 'mile-per-hour',
+// };
 
-console.log('US:', new Intl.NumberFormat('en-US', options).format(num));
-console.log('Germany:', new Intl.NumberFormat('de-DE', options).format(num));
-console.log('Syria:', new Intl.NumberFormat('ar-SY', options).format(num));
-console.log('Locale:', new Intl.NumberFormat(locale, options).format(num));
+// console.log('US:', new Intl.NumberFormat('en-US', options).format(num));
+// console.log('Germany:', new Intl.NumberFormat('de-DE', options).format(num));
+// console.log('Syria:', new Intl.NumberFormat('ar-SY', options).format(num));
+// console.log('Locale:', new Intl.NumberFormat(locale, options).format(num));
+
+const ingredients = ['olives', 'spinach'];
+
+const pizzaTimer = setTimeout(
+  (ing1, ing2) => console.log(`Here is your pizza with ${ing1} and ${ing2}`),
+  3000,
+  ...ingredients
+);
+console.log('waiting...');
+
+if (ingredients.includes('spinach')) clearTimeout(pizzaTimer);
