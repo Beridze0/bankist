@@ -415,3 +415,9 @@ btnSort.addEventListener('click', function (e) {
 // console.log('waiting...');
 
 // if (ingredients.includes('spinach')) clearTimeout(pizzaTimer);
+
+setInterval(function () {
+  const now = new Date();
+  const seconds = now.getSeconds();
+  console.log(seconds);
+}, 1000);
