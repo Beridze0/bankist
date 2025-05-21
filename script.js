@@ -193,10 +193,19 @@ const updateUI = function (acc) {
 };
 
 const startLogOutTimer = function () {
-  let time = 100;
-  setInterval(function () {
-    labelTimer.textContent = time;
-    time = time - 1;
+  let time = 120;
+  const timer = setInterval(function () {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
+
+    labelTimer.textContent = `${min}:${sec}`;
+
+    time--;
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = 'Log in to get started';
+      containerApp.style.opacity = 0;
+    }
   }, 1000);
 };
 
@@ -204,9 +213,9 @@ const startLogOutTimer = function () {
 // Event handlers
 let currentAccount;
 
-currentAccount = account1;
-updateUI(currentAccount);
-containerApp.style.opacity = 100;
+// currentAccount = account1;
+// updateUI(currentAccount);
+// containerApp.style.opacity = 100;
 
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
